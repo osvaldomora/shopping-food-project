@@ -1,7 +1,6 @@
 package com.shopping.food.model;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -28,8 +26,8 @@ public class OrderDetail {
 	private int orderId;
 	private LocalDate orderDate;
 	
-	private Integer userId;
-	private Integer storeId;
+//	private Integer userId;
+//	private Integer storeId;
 	//@ManyToOne
 	//@JoinColumn(name= "storeId")
 	//private Store store;
