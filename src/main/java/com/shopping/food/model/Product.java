@@ -24,7 +24,7 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer productId;
-	private Long price;
+	private Double price;
 	private String description;
 	@Enumerated(EnumType.STRING)
 	private Category category;

@@ -28,6 +28,7 @@ public class Store {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer storeId;
+	private String storeName;
 	@Embedded
 	private StoreAddress storeAddress;
 	private String rating;
