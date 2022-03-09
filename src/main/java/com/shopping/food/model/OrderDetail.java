@@ -1,12 +1,19 @@
 package com.shopping.food.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 
 import lombok.Getter;
@@ -19,13 +26,19 @@ public class OrderDetail {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderId;
-	private LocalDateTime orderDate;
-	private int userId;
+	private LocalDate orderDate;
 	
-	@ManyToOne
-	@JoinColumn(name= "storeId")
-	private Store store;
+	private Integer userId;
+	private Integer storeId;
+	//@ManyToOne
+	//@JoinColumn(name= "storeId")
+	//private Store store;
+	@ElementCollection
+	@JoinTable(name = "orderproducts", joinColumns = @JoinColumn(name = "orderDetailId"))
+	private List<OrderProduct> orderProductList = new ArrayList<>();
 	
 	private Double totalPrice;
-	private String status;
+	
+	@Enumerated(EnumType.STRING)
+	private OrderStatus status;
 }
