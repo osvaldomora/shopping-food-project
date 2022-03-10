@@ -8,11 +8,15 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
+
+import com.shopping.food.enumeration.OrderStatus;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -26,7 +30,9 @@ public class OrderDetail {
 	private int orderId;
 	private LocalDate orderDate;
 	
-//	private Integer userId;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	private User user;
 //	private Integer storeId;
 	//@ManyToOne
 	//@JoinColumn(name= "storeId")
@@ -38,5 +44,14 @@ public class OrderDetail {
 	private Double totalPrice;
 	
 	@Enumerated(EnumType.STRING)
-	private OrderStatus status;
+	private OrderStatus status;//OrderStatus status;
+
+	@Override
+	public String toString() {
+		return "OrderDetail [orderId=" + orderId + ", orderDate=" + orderDate + ", user=" + user + ", orderProductList="
+				+ orderProductList + ", totalPrice=" + totalPrice + ", status=" + status + "]";
+	}
+	
+	
+	
 }

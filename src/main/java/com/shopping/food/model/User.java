@@ -31,10 +31,23 @@ public class User {
 	@Embedded
 	private Address address;
 	
-	 @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,fetch=FetchType.EAGER)
-	    @JoinColumn(name = "user_id")
+//	 @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,fetch=FetchType.EAGER)
+//	    @JoinColumn(name = "user_id")
+	@OneToMany(
+			mappedBy = "user",
+			cascade = CascadeType.ALL,
+			orphanRemoval = true
+			)
 	 private List<OrderDetail> details;
+
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", name=" + name + ", password=" + password + ", email=" + email
+				+ ", phoneNo=" + phoneNo + ", address=" + address + "]";
+	}
 	
 
 
 }
+
+
