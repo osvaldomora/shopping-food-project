@@ -3,8 +3,8 @@ package com.shopping.food.exception;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+//@Getter
+//@Setter
 public class UserNotFoundException extends RuntimeException{
 
 	/**

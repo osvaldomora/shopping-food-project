@@ -6,14 +6,24 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
+//@Getter
+//@Setter
+//@Builder
+//@AllArgsConstructor
+//@NoArgsConstructor
 public class Data {
 	
 	private UserDto data;
+
+	public UserDto getData() {
+		return data;
+	}
+
+	public void setData(UserDto data) {
+		this.data = data;
+	}
+	
+	
 	
 
 }

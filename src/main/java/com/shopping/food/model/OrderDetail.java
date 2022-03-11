@@ -21,8 +21,8 @@ import com.shopping.food.enumeration.OrderStatus;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+//@Getter
+//@Setter
 @Entity
 public class OrderDetail {
 	@Id
@@ -50,6 +50,46 @@ public class OrderDetail {
 	public String toString() {
 		return "OrderDetail [orderId=" + orderId + ", orderDate=" + orderDate +  ", orderProductList="
 				+ orderProductList + ", totalPrice=" + totalPrice + ", status=" + status + "]";
+	}
+
+	public int getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
+
+	public LocalDate getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(LocalDate orderDate) {
+		this.orderDate = orderDate;
+	}
+
+	public List<OrderProduct> getOrderProductList() {
+		return orderProductList;
+	}
+
+	public void setOrderProductList(List<OrderProduct> orderProductList) {
+		this.orderProductList = orderProductList;
+	}
+
+	public Double getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(Double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+	public OrderStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(OrderStatus status) {
+		this.status = status;
 	}
 	
 	
