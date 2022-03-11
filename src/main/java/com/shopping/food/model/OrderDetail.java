@@ -30,13 +30,13 @@ public class OrderDetail {
 	private int orderId;
 	private LocalDate orderDate;
 	
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	private User user;
+	/*
+	@ManyToOne(fetch = FetchType.EAGER)
+	private User user;*/
 //	private Integer storeId;
-	//@ManyToOne
-	//@JoinColumn(name= "storeId")
-	//private Store store;
+//	@ManyToOne
+//	@JoinColumn(name= "storeId")
+//	private Store store;
 	@ElementCollection
 	@JoinTable(name = "orderproducts", joinColumns = @JoinColumn(name = "orderDetailId"))
 	private List<OrderProduct> orderProductList = new ArrayList<>();
@@ -48,7 +48,7 @@ public class OrderDetail {
 
 	@Override
 	public String toString() {
-		return "OrderDetail [orderId=" + orderId + ", orderDate=" + orderDate + ", user=" + user + ", orderProductList="
+		return "OrderDetail [orderId=" + orderId + ", orderDate=" + orderDate +  ", orderProductList="
 				+ orderProductList + ", totalPrice=" + totalPrice + ", status=" + status + "]";
 	}
 	

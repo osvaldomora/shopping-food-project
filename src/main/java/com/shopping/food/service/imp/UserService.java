@@ -1,5 +1,7 @@
 package com.shopping.food.service.imp;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,12 +22,13 @@ public class UserService implements IUserService {
 	@Override
 	public UserDto findByNameAndPassword(String name, String pass) {
 		
-		User user=	userRepo.findByNameAndPassword(name, pass)
-				.orElseThrow(() -> new UserNotFoundException("USer not found"));
+		Optional<User> user=	userRepo.findByNameAndPassword(name, pass);
+//				.orElseThrow(() -> new UserNotFoundException("User not found"));
 		
-
-		
-		UserDto userDto=mapping.mappingUSer(user);
+        if(!user.isPresent())
+		    throw new UserNotFoundException("User not found");
+        
+		UserDto userDto=mapping.mappingUSer(user.get());
 		System.out.println(userDto);
 		return userDto;
 	}

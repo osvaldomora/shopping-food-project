@@ -31,13 +31,14 @@ public class User {
 	@Embedded
 	private Address address;
 	
-//	 @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,fetch=FetchType.EAGER)
-//	    @JoinColumn(name = "user_id")
-	@OneToMany(
+	 @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,fetch=FetchType.EAGER)
+	    @JoinColumn(name = "user_id")
+/*	@OneToMany(
 			mappedBy = "user",
 			cascade = CascadeType.ALL,
 			orphanRemoval = true
-			)
+			,fetch=FetchType.EAGER
+			)*/
 	 private List<OrderDetail> details;
 
 	@Override
